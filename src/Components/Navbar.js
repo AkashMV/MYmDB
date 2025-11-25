@@ -1,4 +1,10 @@
+import { useEffect, useRef } from "react"
+
 export default function Navbar({query, setQuery, movies}){
+    const inputElement = useRef(null)
+
+    useEffect(function(){inputElement.current.focus()},[])
+
     return (
         <nav className="nav-bar">
             <div className="logo">
@@ -6,6 +12,7 @@ export default function Navbar({query, setQuery, movies}){
                 <h1>MImDB</h1>
             </div>
             <input
+            ref={inputElement}
             className="search"
             type="text"
             placeholder="Search movies..."

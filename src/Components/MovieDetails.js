@@ -40,6 +40,10 @@ export default function MovieDetails({movieId, KEY, handleClose, watched, addtoW
         addtoWatched(movieObject)
         handleClose()
     }
+    useEffect(function(){
+        document.title = `MymDB | ${movie.Title}`
+        return function(){document.title = "MymDB"}
+    }, [movie])
 
     return (
         <>
